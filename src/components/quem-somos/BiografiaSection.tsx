@@ -7,7 +7,7 @@ export function BiografiaSection() {
             <img
               src="/images/dr-rodrigo-biografia.jpg"
               alt="Dr. Rodrigo Cacau"
-              className="size-full object-cover object-[50%_15%]"
+              className="size-full object-cover object-top"
             />
           </div>
           <p className="mt-4 text-center font-heading text-lg text-primary">
