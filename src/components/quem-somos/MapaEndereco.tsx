@@ -28,7 +28,7 @@ export function MapaEndereco() {
         <div className="overflow-hidden rounded-xl ring-1 ring-border">
           <iframe
             title="Localização do consultório em Feira de Santana - BA"
-            src="https://www.google.com/maps?q=Feira+de+Santana,BA&output=embed"
+            src="https://www.google.com/maps?q=Av.+Governador+Jo%C3%A3o+Durval+Carneiro,+3803,+Feira+de+Santana,+BA&output=embed"
             className="h-full min-h-72 w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

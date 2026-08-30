@@ -10,7 +10,7 @@ export function BiografiaSection() {
 
         <div>
           <h1 className="text-4xl font-semibold text-primary">Dr. Rodrigo Cacau</h1>
-          <p className="mt-1 text-sm font-medium text-accent">CRM-BA 00000 · Cardiologia</p>
+          <p className="mt-1 text-sm font-medium text-accent">CRM-BA 19577 · Cardiologia</p>
 
           <p className="mt-6 text-muted-foreground">
             Médico cardiologista formado com especialização em Cardiologia Clínica, com

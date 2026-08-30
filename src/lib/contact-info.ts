@@ -1,9 +1,9 @@
-export const ENDERECO = '[Endereço do consultório] — Feira de Santana - BA'
-export const TELEFONE = '(75) 0000-0000'
-export const EMAIL = 'contato@drrodrigocacau.com.br'
+export const ENDERECO =
+  'Av. Governador João Durval Carneiro, nº 3803 — Edifício Charmant Hotel & Business, sala 312, 3º Andar, Bairro Caseb, Feira de Santana - BA, CEP 44.051-605'
+export const TELEFONE = '(75) 99949-0478'
+export const EMAIL = 'rec.drcacau@gmail.com'
 
-// Placeholder — substituir pelo número real com DDI+DDD (ex: 5575999999999)
-export const WHATSAPP_NUMBER = '5575000000000'
+export const WHATSAPP_NUMBER = '5575999490478'
 export const WHATSAPP_MENSAGEM_PADRAO = 'Olá, gostaria de agendar uma consulta'
 
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
