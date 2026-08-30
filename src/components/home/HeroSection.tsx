@@ -20,8 +20,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex aspect-square items-center justify-center rounded-2xl bg-secondary p-12 lg:aspect-4/5">
-          <img src="/logo.png" alt="Dr. Rodrigo Cacau — Medicina Integrada" className="w-full max-w-64 rounded-xl" />
+        <div className="aspect-square overflow-hidden rounded-2xl bg-secondary lg:aspect-4/5">
+          <img
+            src="/images/dr-rodrigo-perfil.jpg"
+            alt="Dr. Rodrigo Cacau"
+            className="size-full object-cover"
+          />
         </div>
       </div>
     </section>
