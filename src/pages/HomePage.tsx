@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { HeroSection } from '@/components/home/HeroSection'
 import { DiferenciaisGrid } from '@/components/home/DiferenciaisGrid'
+import { ExamesSection } from '@/components/home/ExamesSection'
 import { CasesPreview } from '@/components/home/CasesPreview'
 import { CTABanner } from '@/components/home/CTABanner'
 
@@ -16,6 +17,7 @@ export function HomePage() {
       </Helmet>
       <HeroSection />
       <DiferenciaisGrid />
+      <ExamesSection />
       <CasesPreview />
       <CTABanner />
     </>
