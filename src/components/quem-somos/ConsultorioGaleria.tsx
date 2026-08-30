@@ -2,8 +2,8 @@ import { Building2 } from 'lucide-react'
 
 const fotos = [
   { legenda: 'Recepção', src: '/images/consultorio-recepcao.webp' },
-  { legenda: 'Sala de consulta', src: '/images/consultorio-sala-consulta.jpg' },
-  { legenda: 'Sala de exames', src: null },
+  { legenda: 'Sala de consulta', src: null },
+  { legenda: 'Sala de exames', src: '/images/consultorio-sala-exames.jpg' },
   { legenda: 'Espaço de espera', src: '/images/consultorio-espera.jpg' },
 ]
 
