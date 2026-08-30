@@ -4,7 +4,7 @@ const fotos = [
   { legenda: 'Recepção', src: '/images/consultorio-recepcao.webp' },
   { legenda: 'Sala de consulta', src: '/images/consultorio-sala-consulta.jpg' },
   { legenda: 'Sala de exames', src: null },
-  { legenda: 'Espaço de espera', src: null },
+  { legenda: 'Espaço de espera', src: '/images/consultorio-espera.jpg' },
 ]
 
 export function ConsultorioGaleria() {
