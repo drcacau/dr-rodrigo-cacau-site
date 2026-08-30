@@ -1,10 +1,5 @@
 import { Clock, MapPin } from 'lucide-react'
-
-const horarios = [
-  { dia: 'Segunda a sexta', horario: '08h às 18h' },
-  { dia: 'Sábado', horario: '08h às 12h' },
-  { dia: 'Domingo', horario: 'Fechado' },
-]
+import { ENDERECO, HORARIOS } from '@/lib/contact-info'
 
 export function MapaEndereco() {
   return (
@@ -15,15 +10,13 @@ export function MapaEndereco() {
 
           <div className="mt-6 flex gap-3">
             <MapPin className="size-5 shrink-0 text-accent" />
-            <p className="text-muted-foreground">
-              [Endereço do consultório] — Feira de Santana - BA
-            </p>
+            <p className="text-muted-foreground">{ENDERECO}</p>
           </div>
 
           <div className="mt-4 flex gap-3">
             <Clock className="size-5 shrink-0 text-accent" />
             <ul className="text-muted-foreground">
-              {horarios.map((h) => (
+              {HORARIOS.map((h) => (
                 <li key={h.dia}>
                   <span className="font-medium text-foreground">{h.dia}:</span> {h.horario}
                 </li>
