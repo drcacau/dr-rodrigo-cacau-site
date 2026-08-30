@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { HeartPulse } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 
 export function HeroSection() {
@@ -21,8 +20,8 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex aspect-square items-center justify-center rounded-2xl bg-secondary lg:aspect-4/5">
-          <HeartPulse className="size-24 text-primary/40" strokeWidth={1.25} />
+        <div className="flex aspect-square items-center justify-center rounded-2xl bg-secondary p-12 lg:aspect-4/5">
+          <img src="/logo.png" alt="Dr. Rodrigo Cacau — Medicina Integrada" className="w-full max-w-64 rounded-xl" />
         </div>
       </div>
     </section>

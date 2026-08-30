@@ -19,10 +19,15 @@ export function Header() {
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="flex items-center gap-2 font-heading text-lg font-semibold text-primary"
+          className="flex items-center gap-2"
         >
           <img src="/logo.png" alt="" className="size-9 rounded-md" />
-          Dr. Rodrigo Cacau
+          <span className="leading-tight">
+            <span className="block font-heading text-lg font-semibold text-primary">
+              Dr. Rodrigo Cacau
+            </span>
+            <span className="block text-xs font-medium text-accent">Medicina Integrada</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
