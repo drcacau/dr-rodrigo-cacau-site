@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -13,6 +15,7 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
+import { useUploadCaseFoto } from '@/hooks/useCases'
 import type { Case } from '@/types'
 
 const caseSchema = z.object({
@@ -25,7 +28,7 @@ const caseSchema = z.object({
   ativo: z.boolean(),
 })
 
-export type CaseFormValues = z.infer<typeof caseSchema>
+export type CaseFormValues = z.infer<typeof caseSchema> & { foto_url: string | null }
 
 interface CaseFormProps {
   caso?: Case | null
@@ -34,13 +37,17 @@ interface CaseFormProps {
 }
 
 export function CaseForm({ caso, onSubmit, onCancel }: CaseFormProps) {
+  const [fotoFile, setFotoFile] = useState<File | null>(null)
+  const fotoUrl = caso?.foto_url ?? null
+  const uploadFoto = useUploadCaseFoto()
+
   const {
     register,
     handleSubmit,
     control,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<CaseFormValues>({
+  } = useForm<z.infer<typeof caseSchema>>({
     resolver: zodResolver(caseSchema),
     defaultValues: {
       paciente: caso?.paciente ?? '',
@@ -55,8 +62,20 @@ export function CaseForm({ caso, onSubmit, onCancel }: CaseFormProps) {
 
   const tipo = watch('tipo')
 
+  async function onValid(values: z.infer<typeof caseSchema>) {
+    let finalFotoUrl = fotoUrl
+    if (fotoFile) {
+      try {
+        finalFotoUrl = await uploadFoto.mutateAsync(fotoFile)
+      } catch {
+        toast.error('Falha ao enviar a foto. O case será salvo sem a foto.')
+      }
+    }
+    onSubmit({ ...values, foto_url: finalFotoUrl })
+  }
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit(onValid)} className="space-y-4" noValidate>
       <div className="space-y-1.5">
         <Label htmlFor="paciente">Paciente</Label>
         <Input id="paciente" placeholder="Ex: M.S., 58 anos" {...register('paciente')} />
@@ -108,11 +127,16 @@ export function CaseForm({ caso, onSubmit, onCancel }: CaseFormProps) {
       </div>
 
       <div className="space-y-1.5">
-        <Label>Foto do paciente</Label>
-        <Input type="file" accept="image/*" disabled />
-        <p className="text-xs text-muted-foreground">
-          Upload será habilitado quando o Supabase Storage for integrado (Módulo 6).
-        </p>
+        <Label htmlFor="foto">Foto do paciente</Label>
+        {fotoUrl && !fotoFile && (
+          <img src={fotoUrl} alt="" className="mb-2 h-20 w-20 rounded-lg object-cover" />
+        )}
+        <Input
+          id="foto"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setFotoFile(e.target.files?.[0] ?? null)}
+        />
       </div>
 
       <div className="flex items-center justify-between">
@@ -141,8 +165,12 @@ export function CaseForm({ caso, onSubmit, onCancel }: CaseFormProps) {
         <Button type="button" variant="outline" onClick={onCancel}>
           Cancelar
         </Button>
-        <Button type="submit" disabled={isSubmitting}>
-          {caso ? 'Salvar alterações' : 'Criar case'}
+        <Button type="submit" disabled={isSubmitting || uploadFoto.isPending}>
+          {uploadFoto.isPending
+            ? 'Enviando foto...'
+            : caso
+              ? 'Salvar alterações'
+              : 'Criar case'}
         </Button>
       </div>
     </form>

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { mockCases } from '@/lib/mock-cases'
+import { useCases } from '@/hooks/useCases'
 import { CaseCard } from './CaseCard'
 import { CaseCardVideo } from './CaseCardVideo'
 import { CasesFilter, type CasesFilterValue } from './CasesFilter'
@@ -9,14 +9,15 @@ import { CasesFilter, type CasesFilterValue } from './CasesFilter'
 const PAGE_SIZE = 6
 
 export function CasesGrid() {
+  const { data: cases, isLoading, isError } = useCases()
   const [filtro, setFiltro] = useState<CasesFilterValue>('todos')
   const [pagina, setPagina] = useState(1)
 
   const casosFiltrados = useMemo(() => {
-    const ativos = mockCases.filter((caso) => caso.ativo)
-    if (filtro === 'todos') return ativos
-    return ativos.filter((caso) => caso.tipo === filtro)
-  }, [filtro])
+    const todos = cases ?? []
+    if (filtro === 'todos') return todos
+    return todos.filter((caso) => caso.tipo === filtro)
+  }, [cases, filtro])
 
   const totalPaginas = Math.max(1, Math.ceil(casosFiltrados.length / PAGE_SIZE))
   const paginaAtual = Math.min(pagina, totalPaginas)
@@ -45,7 +46,13 @@ export function CasesGrid() {
           )}
         </div>
 
-        {casosPagina.length === 0 && (
+        {isError && (
+          <p className="mt-10 text-center text-destructive">
+            Não foi possível carregar os cases. Tente novamente mais tarde.
+          </p>
+        )}
+
+        {!isLoading && !isError && casosPagina.length === 0 && (
           <p className="mt-10 text-center text-muted-foreground">
             Nenhum case encontrado para este filtro.
           </p>

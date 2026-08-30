@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
 import { MessageSquare, Sparkles } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { mockCases } from '@/lib/mock-cases'
-import { mockMensagens } from '@/lib/mock-mensagens'
+import { useAllCases } from '@/hooks/useCases'
+import { useContatos } from '@/hooks/useContatos'
 
 export function AdminDashboardPage() {
-  const totalCases = mockCases.filter((c) => c.ativo).length
-  const totalMensagens = mockMensagens.length
-  const naoLidas = mockMensagens.filter((m) => !m.lido).length
+  const { data: cases } = useAllCases()
+  const { data: mensagens } = useContatos()
+
+  const totalCases = cases?.filter((c) => c.ativo).length ?? 0
+  const totalMensagens = mensagens?.length ?? 0
+  const naoLidas = mensagens?.filter((m) => !m.lido).length ?? 0
 
   return (
     <div>

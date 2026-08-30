@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -8,45 +9,51 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { MensagensTable } from '@/components/admin/MensagensTable'
-import { mockMensagens } from '@/lib/mock-mensagens'
+import { useContatos, useUpdateContato } from '@/hooks/useContatos'
 import type { Contato } from '@/types'
 
 export function AdminMensagensPage() {
-  const [mensagens, setMensagens] = useState<Contato[]>(() => mockMensagens.map((m) => ({ ...m })))
-  const [selecionada, setSelecionada] = useState<Contato | null>(null)
+  const { data: mensagens, isLoading, isError } = useContatos()
+  const updateContato = useUpdateContato()
+  const [selecionadaId, setSelecionadaId] = useState<string | null>(null)
+
+  const selecionada = mensagens?.find((m) => m.id === selecionadaId) ?? null
 
   function handleSelect(mensagem: Contato) {
-    setSelecionada(mensagem)
+    setSelecionadaId(mensagem.id)
     if (!mensagem.lido) {
-      setMensagens((prev) =>
-        prev.map((m) => (m.id === mensagem.id ? { ...m, lido: true } : m)),
-      )
+      updateContato.mutate({ id: mensagem.id, lido: true })
     }
   }
 
   function handleToggleRespondido() {
     if (!selecionada) return
-    setMensagens((prev) =>
-      prev.map((m) =>
-        m.id === selecionada.id ? { ...m, respondido: !m.respondido } : m,
-      ),
+    updateContato.mutate(
+      { id: selecionada.id, respondido: !selecionada.respondido },
+      { onError: () => toast.error('Não foi possível atualizar a mensagem.') },
     )
-    setSelecionada((prev) => (prev ? { ...prev, respondido: !prev.respondido } : prev))
   }
 
   return (
     <div>
       <h1 className="text-2xl font-semibold text-primary">Mensagens Recebidas</h1>
-      <p className="mt-1 text-muted-foreground">
-        Mensagens enviadas pelo formulário de contato (dados desta sessão — persistência real
-        no Módulo 6).
-      </p>
+      <p className="mt-1 text-muted-foreground">Mensagens enviadas pelo formulário de contato.</p>
 
-      <div className="mt-6 rounded-xl bg-background ring-1 ring-border">
-        <MensagensTable mensagens={mensagens} onSelect={handleSelect} />
-      </div>
+      {isError && (
+        <p className="mt-4 text-destructive">Não foi possível carregar as mensagens.</p>
+      )}
 
-      <Dialog open={!!selecionada} onOpenChange={(open) => !open && setSelecionada(null)}>
+      {!isError && (
+        <div className="mt-6 rounded-xl bg-background ring-1 ring-border">
+          {isLoading ? (
+            <p className="p-6 text-muted-foreground">Carregando...</p>
+          ) : (
+            <MensagensTable mensagens={mensagens ?? []} onSelect={handleSelect} />
+          )}
+        </div>
+      )}
+
+      <Dialog open={!!selecionada} onOpenChange={(open) => !open && setSelecionadaId(null)}>
         <DialogContent className="sm:max-w-md">
           {selecionada && (
             <>
