@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    /* Azul escuro — confiança médica */
+    --primary: #1b3a5c;
+    --primary-foreground: #f8f6f2;
+
+    /* Dourado terroso — medicina integrativa */
+    --accent: #c4935a;
+    --accent-foreground: #1a1a1a;
+
+    /* Off-white — fundo principal */
+    --background: #f8f6f2;
+    --foreground: #1a1a1a;
+
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a1a;
+
+    --secondary: #f1ede4;
+    --secondary-foreground: #1a1a1a;
+
+    --muted: #f1ede4;
+    --muted-foreground: #6b7280;
+
+    --destructive: #b3261e;
+
+    --border: #e5e0d8;
+    --input: #e5e0d8;
+    --ring: #1b3a5c;
+
+    --chart-1: #1b3a5c;
+    --chart-2: #c4935a;
+    --chart-3: #6b7280;
+    --chart-4: #8a9bab;
+    --chart-5: #d8b78a;
+
+    --radius: 0.75rem;
+
+    --sidebar: #f8f6f2;
+    --sidebar-foreground: #1a1a1a;
+    --sidebar-primary: #1b3a5c;
+    --sidebar-primary-foreground: #f8f6f2;
+    --sidebar-accent: #f1ede4;
+    --sidebar-accent-foreground: #1a1a1a;
+    --sidebar-border: #e5e0d8;
+    --sidebar-ring: #1b3a5c;
+}
+
+.dark {
+    --primary: #4a79a3;
+    --primary-foreground: #f8f6f2;
+
+    --accent: #c4935a;
+    --accent-foreground: #1a1a1a;
+
+    --background: #0f1b26;
+    --foreground: #f8f6f2;
+
+    --card: #16232f;
+    --card-foreground: #f8f6f2;
+    --popover: #16232f;
+    --popover-foreground: #f8f6f2;
+
+    --secondary: #1d2c3a;
+    --secondary-foreground: #f8f6f2;
+
+    --muted: #1d2c3a;
+    --muted-foreground: #9ca7b2;
+
+    --destructive: #e5484d;
+
+    --border: rgba(248, 246, 242, 0.12);
+    --input: rgba(248, 246, 242, 0.15);
+    --ring: #c4935a;
+
+    --chart-1: #4a79a3;
+    --chart-2: #c4935a;
+    --chart-3: #9ca7b2;
+    --chart-4: #6b7280;
+    --chart-5: #d8b78a;
+
+    --sidebar: #16232f;
+    --sidebar-foreground: #f8f6f2;
+    --sidebar-primary: #4a79a3;
+    --sidebar-primary-foreground: #f8f6f2;
+    --sidebar-accent: #1d2c3a;
+    --sidebar-accent-foreground: #f8f6f2;
+    --sidebar-border: rgba(248, 246, 242, 0.12);
+    --sidebar-ring: #c4935a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
