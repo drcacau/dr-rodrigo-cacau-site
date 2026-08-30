@@ -25,7 +25,7 @@ export function AbordagemSection() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold text-primary">Nossa Abordagem</h2>
           <p className="mt-4 text-muted-foreground">
-            A medicina integrativa aplicada à cardiologia olha para além do exame: considera
+            A medicina integrada aplicada à cardiologia olha para além do exame: considera
             alimentação, sono, estresse e estilo de vida como parte do tratamento do coração.
           </p>
         </div>

@@ -10,7 +10,7 @@ export function HeroSection() {
             Cuide do seu coração com quem une ciência e cuidado humano
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
-            Cardiologia clínica e medicina integrativa em Feira de Santana - BA, com um
+            Cardiologia clínica e medicina integrada em Feira de Santana - BA, com um
             olhar para o paciente como um todo.
           </p>
           <div className="mt-8">

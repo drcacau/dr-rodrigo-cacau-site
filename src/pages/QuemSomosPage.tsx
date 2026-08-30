@@ -8,7 +8,7 @@ export function QuemSomosPage() {
   return (
     <>
       <Helmet>
-        <title>Sobre o Dr. Rodrigo Cacau — Medicina Integrativa</title>
+        <title>Sobre o Dr. Rodrigo Cacau — Medicina Integrada</title>
         <meta
           name="description"
           content="Conheça a trajetória e a abordagem integrativa do Dr. Rodrigo Cacau, cardiologista em Feira de Santana."

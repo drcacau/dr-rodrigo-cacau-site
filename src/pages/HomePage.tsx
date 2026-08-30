@@ -11,7 +11,7 @@ export function HomePage() {
         <title>Dr. Rodrigo Cacau — Cardiologista em Feira de Santana</title>
         <meta
           name="description"
-          content="Cardiologia clínica e medicina integrativa em Feira de Santana - BA. Agende sua consulta."
+          content="Cardiologia clínica e medicina integrada em Feira de Santana - BA. Agende sua consulta."
         />
       </Helmet>
       <HeroSection />

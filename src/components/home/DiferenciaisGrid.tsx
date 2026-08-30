@@ -14,7 +14,7 @@ const diferenciais = [
   },
   {
     icon: Leaf,
-    title: 'Medicina Integrativa',
+    title: 'Medicina Integrada',
     description: 'Abordagem que une ciência médica e cuidado com o estilo de vida do paciente.',
   },
   {

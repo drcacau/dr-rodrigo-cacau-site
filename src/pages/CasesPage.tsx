@@ -8,7 +8,7 @@ export function CasesPage() {
         <title>Cases de Sucesso — Dr. Rodrigo Cacau</title>
         <meta
           name="description"
-          content="Depoimentos de pacientes que transformaram sua saúde cardiovascular com medicina integrativa."
+          content="Depoimentos de pacientes que transformaram sua saúde cardiovascular com medicina integrada."
         />
       </Helmet>
 

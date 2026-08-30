@@ -1,13 +1,11 @@
+import { UserRound } from 'lucide-react'
+
 export function BiografiaSection() {
   return (
     <section className="bg-background">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
-        <div className="aspect-4/5 overflow-hidden rounded-2xl bg-secondary lg:order-1">
-          <img
-            src="/images/dr-rodrigo-perfil.jpg"
-            alt="Dr. Rodrigo Cacau"
-            className="size-full object-cover"
-          />
+        <div className="flex aspect-4/5 items-center justify-center rounded-2xl bg-secondary lg:order-1">
+          <UserRound className="size-24 text-primary/40" strokeWidth={1.25} />
         </div>
 
         <div>
@@ -16,7 +14,7 @@ export function BiografiaSection() {
 
           <p className="mt-6 text-muted-foreground">
             Médico cardiologista formado com especialização em Cardiologia Clínica, com
-            aprofundamento em Medicina Integrativa aplicada à saúde cardiovascular. Atua em
+            aprofundamento em Medicina Integrada aplicada à saúde cardiovascular. Atua em
             Feira de Santana e região metropolitana, unindo o rigor da ciência médica a uma
             escuta atenta de cada paciente.
           </p>
