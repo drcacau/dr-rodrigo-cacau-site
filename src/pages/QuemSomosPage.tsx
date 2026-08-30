@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { BiografiaSection } from '@/components/quem-somos/BiografiaSection'
 import { AbordagemSection } from '@/components/quem-somos/AbordagemSection'
 import { ConsultorioGaleria } from '@/components/quem-somos/ConsultorioGaleria'
+import { BastidoresSection } from '@/components/quem-somos/BastidoresSection'
 import { MapaEndereco } from '@/components/quem-somos/MapaEndereco'
 
 export function QuemSomosPage() {
@@ -17,6 +18,7 @@ export function QuemSomosPage() {
       <BiografiaSection />
       <AbordagemSection />
       <ConsultorioGaleria />
+      <BastidoresSection />
       <MapaEndereco />
     </>
   )
