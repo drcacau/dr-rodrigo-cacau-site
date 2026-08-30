@@ -19,8 +19,9 @@ export function Header() {
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="font-heading text-lg font-semibold text-primary"
+          className="flex items-center gap-2 font-heading text-lg font-semibold text-primary"
         >
+          <img src="/logo.png" alt="" className="size-9 rounded-md" />
           Dr. Rodrigo Cacau
         </Link>
 
