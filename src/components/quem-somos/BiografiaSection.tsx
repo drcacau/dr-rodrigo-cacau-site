@@ -2,12 +2,17 @@ export function BiografiaSection() {
   return (
     <section className="bg-background">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
-        <div className="aspect-4/5 overflow-hidden rounded-2xl bg-secondary lg:order-1">
-          <img
-            src="/images/dr-rodrigo-biografia.jpg"
-            alt="Dr. Rodrigo Cacau"
-            className="size-full object-cover"
-          />
+        <div className="lg:order-1">
+          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-secondary">
+            <img
+              src="/images/dr-rodrigo-biografia.jpg"
+              alt="Dr. Rodrigo Cacau"
+              className="size-full object-cover object-[50%_15%]"
+            />
+          </div>
+          <p className="mt-4 text-center font-heading text-lg text-primary">
+            Cuidar do coração é <span className="text-accent">cuidar da vida</span>.
+          </p>
         </div>
 
         <div>
