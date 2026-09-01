@@ -25,7 +25,7 @@ export function ConveniosSection() {
 
         <p className="mx-auto mt-8 max-w-xl text-sm text-muted-foreground">
           Atende outro convênio? Oferecemos condições especiais para pacientes de outros
-          planos de saúde — fale com a gente e verifique sua cobertura.
+          planos de saúde — fale com a gente.
         </p>
       </div>
     </section>

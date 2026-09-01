@@ -33,25 +33,32 @@ export function InfoContato() {
         </li>
       </ul>
 
-      <div className="mt-6 flex gap-3 border-t border-border pt-6">
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="flex size-10 items-center justify-center rounded-full bg-secondary text-primary transition-colors hover:bg-accent hover:text-accent-foreground"
-        >
-          <InstagramIcon className="size-5" />
-        </a>
-        <a
-          href={TIKTOK_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="TikTok"
-          className="flex size-10 items-center justify-center rounded-full bg-secondary text-primary transition-colors hover:bg-accent hover:text-accent-foreground"
-        >
-          <TikTokIcon className="size-5" />
-        </a>
+      <div className="mt-6 border-t border-border pt-6">
+        <p className="mb-3 text-sm font-medium text-foreground">Siga nas redes sociais</p>
+        <div className="flex gap-4">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            style={{
+              background:
+                'linear-gradient(45deg, #FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5)',
+            }}
+            className="flex size-12 items-center justify-center rounded-full text-white shadow-md transition-transform hover:scale-110"
+          >
+            <InstagramIcon className="size-6" />
+          </a>
+          <a
+            href={TIKTOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            className="flex size-12 items-center justify-center rounded-full bg-black shadow-md transition-transform hover:scale-110"
+          >
+            <TikTokIcon className="size-6" />
+          </a>
+        </div>
       </div>
     </div>
   )
