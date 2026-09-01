@@ -12,6 +12,9 @@ export function buildWhatsAppLink(mensagem: string = WHATSAPP_MENSAGEM_PADRAO) {
 
 export const WHATSAPP_LINK = buildWhatsAppLink()
 
+export const INSTAGRAM_URL = 'https://www.instagram.com/drrodrigocacau'
+export const TIKTOK_URL = 'https://www.tiktok.com/@dr.rodrigo.cacau'
+
 export const HORARIOS = [
   { dia: 'Segunda a sexta', horario: '08h às 18h' },
   { dia: 'Sábado', horario: '08h às 12h' },

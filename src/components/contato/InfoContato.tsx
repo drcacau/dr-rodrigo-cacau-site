@@ -1,5 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
-import { EMAIL, ENDERECO, HORARIOS, TELEFONE } from '@/lib/contact-info'
+import { EMAIL, ENDERECO, HORARIOS, INSTAGRAM_URL, TELEFONE, TIKTOK_URL } from '@/lib/contact-info'
+import { InstagramIcon } from './InstagramIcon'
+import { TikTokIcon } from './TikTokIcon'
 
 export function InfoContato() {
   return (
@@ -30,6 +32,27 @@ export function InfoContato() {
           </ul>
         </li>
       </ul>
+
+      <div className="mt-6 flex gap-3 border-t border-border pt-6">
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="flex size-10 items-center justify-center rounded-full bg-secondary text-primary transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <InstagramIcon className="size-5" />
+        </a>
+        <a
+          href={TIKTOK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          className="flex size-10 items-center justify-center rounded-full bg-secondary text-primary transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <TikTokIcon className="size-5" />
+        </a>
+      </div>
     </div>
   )
 }
