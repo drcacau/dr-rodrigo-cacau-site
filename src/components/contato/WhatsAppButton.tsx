@@ -1,17 +1,20 @@
 import { MessageCircle } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { WHATSAPP_LINK } from '@/lib/contact-info'
+import { buildWhatsAppLink } from '@/lib/contact-info'
 
 interface WhatsAppButtonProps {
   floating?: boolean
+  mensagem?: string
 }
 
-export function WhatsAppButton({ floating = false }: WhatsAppButtonProps) {
+export function WhatsAppButton({ floating = false, mensagem }: WhatsAppButtonProps) {
+  const link = buildWhatsAppLink(mensagem)
+
   if (floating) {
     return (
       <a
-        href={WHATSAPP_LINK}
+        href={link}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Conversar no WhatsApp"
@@ -24,7 +27,7 @@ export function WhatsAppButton({ floating = false }: WhatsAppButtonProps) {
 
   return (
     <a
-      href={WHATSAPP_LINK}
+      href={link}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(

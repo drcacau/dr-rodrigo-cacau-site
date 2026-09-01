@@ -1,9 +1,14 @@
 import { Helmet } from 'react-helmet-async'
+import { useSearchParams } from 'react-router-dom'
 import { ContatoForm } from '@/components/contato/ContatoForm'
 import { AgendamentoEmbed } from '@/components/contato/AgendamentoEmbed'
 import { InfoContato } from '@/components/contato/InfoContato'
 
 export function ContatoPage() {
+  const [searchParams] = useSearchParams()
+  const exame = searchParams.get('exame')
+  const whatsappMensagem = exame ? `Olá, gostaria de marcar ${exame}` : undefined
+
   return (
     <>
       <Helmet>
@@ -34,7 +39,7 @@ export function ContatoPage() {
 
           <div className="space-y-6">
             <InfoContato />
-            <AgendamentoEmbed />
+            <AgendamentoEmbed mensagem={whatsappMensagem} />
           </div>
         </div>
       </section>

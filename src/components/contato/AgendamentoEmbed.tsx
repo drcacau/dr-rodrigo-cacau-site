@@ -1,7 +1,11 @@
 import { CalendarClock } from 'lucide-react'
 import { WhatsAppButton } from './WhatsAppButton'
 
-export function AgendamentoEmbed() {
+interface AgendamentoEmbedProps {
+  mensagem?: string
+}
+
+export function AgendamentoEmbed({ mensagem }: AgendamentoEmbedProps) {
   return (
     <div className="rounded-xl bg-background p-6 ring-1 ring-border">
       <div className="flex items-center gap-3">
@@ -14,7 +18,7 @@ export function AgendamentoEmbed() {
         possível.
       </p>
       <div className="mt-4">
-        <WhatsAppButton />
+        <WhatsAppButton mensagem={mensagem} />
       </div>
     </div>
   )
