@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
@@ -18,6 +19,9 @@ const contatoSchema = z.object({
 type ContatoFormValues = z.infer<typeof contatoSchema>
 
 export function ContatoForm() {
+  const [searchParams] = useSearchParams()
+  const exame = searchParams.get('exame')
+
   const {
     register,
     handleSubmit,
@@ -25,6 +29,9 @@ export function ContatoForm() {
     formState: { errors, isSubmitting },
   } = useForm<ContatoFormValues>({
     resolver: zodResolver(contatoSchema),
+    defaultValues: {
+      mensagem: exame ? `Gostaria de agendar o exame: ${exame}.` : '',
+    },
   })
 
   async function onSubmit(values: ContatoFormValues) {
