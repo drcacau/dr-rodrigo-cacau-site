@@ -1,52 +1,6 @@
 import { Link } from 'react-router-dom'
-import {
-  Activity,
-  CalendarClock,
-  Gauge,
-  HeartPulse,
-  Moon,
-  Scale,
-  Watch,
-} from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
-const exames = [
-  {
-    icon: Activity,
-    title: 'Teste Ergométrico',
-    description: 'Avaliação da resposta cardíaca ao esforço físico.',
-  },
-  {
-    icon: HeartPulse,
-    title: 'Eletrocardiograma (ECG)',
-    description: 'Registro da atividade elétrica do coração.',
-  },
-  {
-    icon: Gauge,
-    title: 'MAPA',
-    description: 'Monitorização ambulatorial da pressão arterial por 24 horas.',
-  },
-  {
-    icon: CalendarClock,
-    title: 'MRPA',
-    description: 'Monitorização residencial da pressão arterial ao longo de dias.',
-  },
-  {
-    icon: Watch,
-    title: 'Holter',
-    description: 'Monitorização contínua do ritmo cardíaco por 24 horas.',
-  },
-  {
-    icon: Moon,
-    title: 'Polissonografia',
-    description: 'Avaliação do sono para diagnóstico de distúrbios como a apneia.',
-  },
-  {
-    icon: Scale,
-    title: 'Bioimpedância',
-    description: 'Análise da composição corporal (gordura, massa magra e água).',
-  },
-]
+import { EXAMES } from '@/lib/exames'
 
 export function ExamesSection() {
   return (
@@ -59,7 +13,7 @@ export function ExamesSection() {
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {exames.map(({ icon: Icon, title, description }) => (
+          {EXAMES.map(({ icon: Icon, title, description }) => (
             <Link key={title} to={`/contato?exame=${encodeURIComponent(title)}`}>
               <Card className="h-full transition-shadow hover:shadow-md">
                 <CardHeader>

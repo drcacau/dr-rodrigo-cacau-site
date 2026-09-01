@@ -3,11 +3,12 @@ import { useSearchParams } from 'react-router-dom'
 import { ContatoForm } from '@/components/contato/ContatoForm'
 import { AgendamentoEmbed } from '@/components/contato/AgendamentoEmbed'
 import { InfoContato } from '@/components/contato/InfoContato'
+import { getExameFrase } from '@/lib/exames'
 
 export function ContatoPage() {
   const [searchParams] = useSearchParams()
-  const exame = searchParams.get('exame')
-  const whatsappMensagem = exame ? `Olá, gostaria de marcar ${exame}` : undefined
+  const exameFrase = getExameFrase(searchParams.get('exame'))
+  const whatsappMensagem = exameFrase ? `Olá, gostaria de agendar ${exameFrase}` : undefined
 
   return (
     <>

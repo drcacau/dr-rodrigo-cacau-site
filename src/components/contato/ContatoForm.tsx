@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { getExameFrase } from '@/lib/exames'
 import { submitContactForm } from '@/services/contactService'
 
 const contatoSchema = z.object({
@@ -20,7 +21,7 @@ type ContatoFormValues = z.infer<typeof contatoSchema>
 
 export function ContatoForm() {
   const [searchParams] = useSearchParams()
-  const exame = searchParams.get('exame')
+  const exameFrase = getExameFrase(searchParams.get('exame'))
 
   const {
     register,
@@ -30,7 +31,7 @@ export function ContatoForm() {
   } = useForm<ContatoFormValues>({
     resolver: zodResolver(contatoSchema),
     defaultValues: {
-      mensagem: exame ? `Gostaria de agendar o exame: ${exame}.` : '',
+      mensagem: exameFrase ? `Gostaria de agendar ${exameFrase}.` : '',
     },
   })
 
